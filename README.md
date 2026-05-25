@@ -14,7 +14,8 @@
 - Change code structure to use some layering. move business logic out of the main.py into serivces or handlers.
 - Since the files might be pretty big, I would use Websockets and some queueing mechanism in order to not block the user on the upload.
 - Run multiple backend containers behind a load balancer.
-- Store uploaded files in a storage and save only metadata like path, name, uploadTime etc. to DB. 
+- Store uploaded files in a storage and save only metadata like path, name, uploadTime etc. to DB.
+- add tests
 - AI features: 
   - Auto suggestions for clause types
   - Risk Scoring
@@ -30,6 +31,10 @@
 - generate apiClient based on openapi spec.
 - use ngrx for state management if it gets bigger.
 - would like to try angular aria with tailwind for nicer styling.
+- I would use angular cdk overlay instead of the custom popup or something else to move popup logic out of the page component.
+- add user based labeling if there is auth for auditing.
+- add E2E tests using playwright
+- add unit tests using vitest.
 
 
 
