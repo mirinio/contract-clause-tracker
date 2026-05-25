@@ -1,6 +1,12 @@
 <div class="min-h-screen bg-gray-50">
 
-
+  <div class="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+    <h1 class="text-xl font-semibold text-gray-800">Clause Tracker</h1>
+    <a routerLink="/upload"
+       class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
+      Upload Contract
+    </a>
+  </div>
 
   <div class="max-w-6xl mx-auto px-6 py-8" [formGroup]="searchForm">
 
@@ -42,8 +48,10 @@
             @for (doc of documents(); track doc.id) {
               <tr class="hover:bg-gray-50 transition-colors">
                 <td class="px-6 py-4">
-                  {{ doc.name }}
-                  
+                  <a [routerLink]="['/documents', doc.id]"
+                     class="text-blue-600 hover:underline font-medium">
+                    {{ doc.name }}
+                  </a>
                 </td>
                 <td class="px-6 py-4 text-gray-500">{{ doc.uploaded_at | date:'mediumDate' }}</td>
                 <td class="px-6 py-4">
@@ -91,7 +99,10 @@
                 @for (doc of group.docs; track doc.id) {
                   <tr class="hover:bg-gray-50 transition-colors">
                     <td class="px-6 py-4">
-                      {{ doc.name }}
+                      <a [routerLink]="['/documents', doc.id]"
+                         class="text-blue-600 hover:underline font-medium">
+                        {{ doc.name }}
+                      </a>
                     </td>
                     <td class="px-6 py-4 text-gray-500">{{ doc.uploaded_at | date:'mediumDate' }}</td>
                     <td class="px-6 py-4">
