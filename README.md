@@ -1,3 +1,7 @@
+# How to run it
+- docker-compose up --build
+- open http://localhost:4200 in your browser
+
 
 
 # Decisions
