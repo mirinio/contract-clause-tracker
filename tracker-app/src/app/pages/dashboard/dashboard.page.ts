@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, DestroyRef, inject, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, DestroyRef, inject, input, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormControl, FormGroup, FormsModule, NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
@@ -37,7 +37,7 @@ export class DashboardPage implements OnInit {
     groupBy: this.fb.control('none'),
   });
   protected readonly documents = signal<DocumentSummary[]>([]);
-  protected readonly clauseTypes = signal<string[]>([]);
+  protected readonly clauseTypes = input<string[]>([]);
 
   grouped = computed(() => {
     const grouped = groupBy(this.documents(), (doc) =>
@@ -51,8 +51,6 @@ export class DashboardPage implements OnInit {
   });
 
   ngOnInit() {
-    this.apiClient.getClauseTypes().pipe(takeUntilDestroyed(this.destroyRef)).subscribe(types => this.clauseTypes.set(types));
-
     this.searchForm.valueChanges.pipe(
       startWith(this.searchForm.value),
       debounceTime(400),
