@@ -11,5 +11,11 @@ services:
     environment:
       - DATABASE_URL=sqlite:////app/data/clauses.db
 
+  app:
+    build: ./tracker-app
+    ports:
+      - "4200:80"
+    depends_on:
+      - api
 volumes:
   sqlite_data:
