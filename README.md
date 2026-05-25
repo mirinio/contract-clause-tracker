@@ -23,6 +23,13 @@
   - drafting assistant for contract creation
 
 ## Frontend
+- Fast styling use Tailwind, easy to add "ng add tailwind" done.
+- api client service for backend
+
+### What I would change/extend
+- generate apiClient based on openapi spec.
+- use ngrx for state management if it gets bigger.
+- would like to try angular aria with tailwind for nicer styling.
 
 
 
