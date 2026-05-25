@@ -1,0 +1,15 @@
+version: "3.9"
+name: contract-tracker
+
+services:
+  api:
+    build: ./tracker-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - sqlite_data:/app/data
+    environment:
+      - DATABASE_URL=sqlite:////app/data/clauses.db
+
+volumes:
+  sqlite_data:
