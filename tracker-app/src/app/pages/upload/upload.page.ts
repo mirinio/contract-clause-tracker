@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { ApiClient } from '../../services/api-client/api.client';
 import { catchError, EMPTY, first } from 'rxjs';
@@ -10,6 +10,7 @@ import { catchError, EMPTY, first } from 'rxjs';
   ],
   templateUrl: './upload.page.html',
   styleUrl: './upload.page.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UploadPage {
   private readonly apiClient = inject(ApiClient);

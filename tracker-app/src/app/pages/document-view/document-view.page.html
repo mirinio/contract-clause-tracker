@@ -1,5 +1,5 @@
 @let doc = document();
-
+@let labeled = labeledSentences();
 <div class="min-h-screen bg-gray-50">
   <div class="bg-white border-b border-gray-200 px-6 py-4 flex items-center gap-4">
     <a routerLink="/" class="text-gray-400 hover:text-gray-600 transition-colors">← Back</a>
@@ -21,11 +21,24 @@
       <div class="bg-white rounded-xl border border-gray-200 px-8 py-6 text-gray-700 text-sm leading-8">
 
         @for (sentence of sentences(); track sentence) {
-          <span class="">{{ sentence }}</span>
+          <span
+            class="cursor-pointer rounded px-0.5 transition-colors duration-100 hover:bg-slate-300"
+            [ngClass]="{'bg-orange-200 text-orange-800': labeled.has(sentence)}"
+            (click)="openPopup(sentence, $event)"
+          >{{ sentence }}</span>
         }
       </div>
-
     }
 
   </div>
 </div>
+
+@let data = popupData();
+@if (data) {
+  <app-select-clause-popup
+    [data]="data"
+    [clauseTypes]="clauseTypes()"
+    (closed)="onPopupClosed()"
+    (apply)="onClauseApplied($event)"
+    (remove)="onLabelRemoved()"/>
+}
