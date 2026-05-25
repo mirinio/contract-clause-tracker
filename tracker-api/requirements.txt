@@ -1,0 +1,8 @@
+fastapi[standard]==0.136.1
+uvicorn[standard]
+sqlalchemy
+aiofiles
+python-multipart
+pytest
+httpx
+pydantic==2.13.4
