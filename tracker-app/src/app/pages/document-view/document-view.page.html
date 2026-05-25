@@ -1,1 +1,31 @@
-<p>document-view works!</p>
+@let doc = document();
+
+<div class="min-h-screen bg-gray-50">
+  <div class="bg-white border-b border-gray-200 px-6 py-4 flex items-center gap-4">
+    <a routerLink="/" class="text-gray-400 hover:text-gray-600 transition-colors">← Back</a>
+    @if (doc) {
+      <div>
+        <h1 class="text-xl font-semibold text-gray-800">{{ doc.name }}</h1>
+        <p class="text-xs text-gray-400">{{ doc.uploaded_at | date:'medium' }}</p>
+      </div>
+      <div class="ml-auto">
+            <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs font-medium">
+              {{ labeledCount() }} sentences labeled
+            </span>
+      </div>
+    }
+  </div>
+
+  <div class="max-w-4xl mx-auto px-6 py-8">
+    @if (doc) {
+      <div class="bg-white rounded-xl border border-gray-200 px-8 py-6 text-gray-700 text-sm leading-8">
+
+        @for (sentence of sentences(); track sentence) {
+          <span class="">{{ sentence }}</span>
+        }
+      </div>
+
+    }
+
+  </div>
+</div>

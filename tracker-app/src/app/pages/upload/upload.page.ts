@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { ApiClient } from '../../services/api-client/api-client';
+import { ApiClient } from '../../services/api-client/api.client';
 import { catchError, EMPTY, first } from 'rxjs';
 
 @Component({

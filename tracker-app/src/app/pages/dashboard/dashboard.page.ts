@@ -2,7 +2,7 @@ import { Component, computed, DestroyRef, inject, OnInit, signal } from '@angula
 import { RouterLink } from '@angular/router';
 import { FormControl, FormGroup, FormsModule, NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { ApiClient } from '../../services/api-client/api-client';
+import { ApiClient } from '../../services/api-client/api.client';
 import { DocumentSummary } from '../../models/document.model';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { debounceTime, startWith, switchMap, take } from 'rxjs';
